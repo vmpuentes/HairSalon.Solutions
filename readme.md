@@ -19,13 +19,14 @@ _An app for a hair salon that allows the owner to store information onto a datab
 
 ## Getting Started
 
-May be deployed using git hub pages at  https://vmpuentes.github.io/Address_Book_oct_17/.
+May be deployed using git hub at  https://vmpuentes.github.com/HairSalon.Solutions/.
 
 ### Installation/Setup Requirements
 1.This app may be cloned at  https://vmpuentes.github.com/HairSalon.Solutions/.
 2. Set up .NET dependencies
 3. Set up database with MAMP and create a database with these instructions...
 
+## Database Setup
 > CREATE DATABASE hair_salon;
 > USE hair_salon;
 > CREATE TABLE stylist (id serial PRIMARY KEY, name VARCHAR(255), );
@@ -35,6 +36,8 @@ May be deployed using git hub pages at  https://vmpuentes.github.io/Address_Book
 ## Built With
 
 * [C#](https://learnhowtoprogram.com/couses/c#)
+* .NET Framework
+* MVC
 * [HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5) - Used to contruct this webpage
 * [CSS3](http://html.com/css/) - Used to style
 * [Javascript] (https://www.javascript.com/) - Used for user interactives
