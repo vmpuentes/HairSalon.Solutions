@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+  <form action="/" class="form-group" method="post">
+    <label for="stylist-name">Please add your stylist here.</label>
+    <input type="text" class="form-control" name="stylist">
+
+    @if(Model!=null)
+    {
+      @foreach(var stylist in Model)
+      {
+        <div class="well">
+          <h3><a href="/stylist-details/@stylist.GetId()">@stylist.GetName()</a>
+        </div>
+      }
+    }
+
+    <button type="submit" name="button" class="btn btn-success">Submit a stylist!</button>
+  </form>
+
+</div>

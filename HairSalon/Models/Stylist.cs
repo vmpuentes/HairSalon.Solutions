@@ -10,31 +10,34 @@ namespace HairSalon.Models
     private int _id;
     private string _firstName;
     private string _lastName;
-    private string _
 
-    public Stylist(string Description, int id = 0)
+    public Stylist(string firstName, string lastName int id = 0)
     {
       _id = Id;
-      _description = Description;
+      _firstName = firstName;
+      _lastName = lastName;
+
     }
 
     //...GETTERS AND SETTERS WILL GO HERE...
 
         public static List<Stylist> GetAll()
         {
-            List<Stylist> allTasks = new List<Stylist> {};
+            List<Stylist> allStylist = new List<Stylist> {};
             MySqlConnection conn = DB.Connection();
             conn.Open();
             MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-            cmd.CommandText = @"SELECT * FROM stylist;";
+            cmd.CommandText = @"SELECT * FROM stylists ORDER BY first_name ASC;";
             MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
             while(rdr.Read())
             {
-              int taskId = rdr.GetInt32(0);
-              string taskDescription = rdr.GetString(1);
-              Stylist newStylist = new Stylist(taskDescription, taskId);
-              allTasks.Add(newTask);
+              int StylistId = rdr.GetInt32(0);
+              string StylistFirstName = rdr.GetString(1);
+              string StylistLastName = rdr.GetString (2);
+              Stylist newStylist = new Stylist(StylistFirstName, StylistLastName StylistId);
+              allStylists.Add(newStylist);
             }
+
             conn.Close();
             if (conn != null)
             {
