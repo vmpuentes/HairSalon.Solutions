@@ -1,12 +1,15 @@
-# HairSalon:C# Week 3 Project October 2017_
+# HairSalon:C# Week 3 Project October 2017
 
 #### _ 10.27.17_
 
-#### By _**Victor M. Puentes Jr.,**_
+#### By _**Victor M. Puentes Jr**
 
 ## Description
 
 _An app for a hair salon that allows the owner to store information onto a database allowing them to add a list of the stylists, and for each stylist, add clients who see that stylist.
+
+
+## Specifications
 
 | Behavior  | Input  | Output  |
 |---|---|---|
@@ -43,9 +46,9 @@ May be deployed using git hub at  https://vmpuentes.github.com/HairSalon.Solutio
 * [Javascript] (https://www.javascript.com/) - Used for user interactives
 * [Bootstrap](http://getbootstrap.com/) - CSS library used
 
-## Authors
+## Author
 
-* **Victor M. Puentes Jr.** - *Initial work* - [github user name: vmpuentes](https://github.com/vmpuentes)
+ **Victor M. Puentes Jr.** - *Initial work* - [github user name: vmpuentes](https://github.com/vmpuentes)
 
 ## License
 
