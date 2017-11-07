@@ -1,0 +1,10 @@
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.csproj.CoreCompileInputs.cache
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.AssemblyInfoInputs.cache
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.AssemblyInfo.cs
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.deps.json
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.runtimeconfig.json
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.runtimeconfig.dev.json
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.dll
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\bin\Debug\netcoreapp1.1\HairSalon.pdb
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.dll
+C:\Users\swhit\Desktop\HairSalon.Solutions\HairSalon\obj\Debug\netcoreapp1.1\HairSalon.pdb

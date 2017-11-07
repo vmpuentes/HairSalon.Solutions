@@ -3,7 +3,7 @@
 }
 
   <form action="/" class="form-group" method="post">
-    <label for="stylist-name">Please add your stylist here.</label>
+    <label for="stylistName">Please add your stylist here.</label>
     <input type="text" class="form-control" name="stylist">
 
     @if(Model!=null)
@@ -11,7 +11,7 @@
       @foreach(var stylist in Model)
       {
         <div class="well">
-          <h3><a href="/stylist-details/@stylist.GetId()">@stylist.GetName()</a>
+          <h3><a href="/stylistdetails/@stylist.GetId()">@stylist.GetName()</a>
         </div>
       }
     }

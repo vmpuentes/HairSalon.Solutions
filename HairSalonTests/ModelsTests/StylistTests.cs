@@ -23,16 +23,16 @@ namespace HairSalon.Tests
     public void GetAllStylists_ReturnsnoStylist_0()
     {
       int result = Stylist.GetAll().Count;
-    Assert.AreEqual(0, result);
+      Assert.AreEqual(0, result);
     }
 
     [TestMethod]
-  public void Equals_ReturnsTrueForSame_Stylist()
-  {
-    Stylist firstStylist = new Stylist("Amy", "Novo");
-    Stylist secondStylist = new Stylist("Amy", "Novo");
-    Assert.AreEqual(firstStylist, secondStylist);
-  }
+    public void Equals_ReturnsTrueForSame_Stylist()
+    {
+      Stylist firstStylist = new Stylist("Amy", "Novo");
+      Stylist secondStylist = new Stylist("Amy", "Novo");
+      Assert.AreEqual(firstStylist, secondStylist);
+    }
 
     [TestMethod]
     public void Save_DBAssignIdToStylist_Id()
@@ -45,24 +45,26 @@ namespace HairSalon.Tests
       Assert.AreEqual(testId, result);
     }
     [TestMethod]
-  public void Save_SavesStylistToDB_StylistList()
-  {
+    public void Save_SavesStylistToDB_StylistList()
+    {
 
-    Stylist testStylist = new Stylist("Amy", "Novo");
-    testStylist.Save();
-    List<Stylist> result = Stylist.GetAll();
-    List<Stylist> testList = new List<Stylist>{testStylist};      //Assert
-    CollectionAssert.AreEqual(testList, result);
-  }
+      Stylist testStylist = new Stylist("Amy", "Novo");
+      testStylist.Save();
+      List<Stylist> result = Stylist.GetAll();
+      List<Stylist> testList = new List<Stylist>{testStylist};      //Assert
+      CollectionAssert.AreEqual(testList, result);
+    }
 
-  [TestMethod]
-  public void GetAll_ListStylists_StylistList()
-  {
-    Stylist newStylist1 = new Stylist("Gabriella", "Smith");
-    newStylist1.Save();
-    Stylist newStylist2 = new Stylist("Ann", "Peters");
-    newStylist2.Save();
-    List<Stylist> allStylists = Stylist.GetAll();
-    List<Stylist> expectedList = new List<Stylist>{newStylist1, newStylist2};
-    CollectionAssert.AreEqual(allStylists, expectedList);
+    [TestMethod]
+    public void GetAll_ListStylists_StylistList()
+    {
+      Stylist newStylist1 = new Stylist("Gabriella", "Smith");
+      newStylist1.Save();
+      Stylist newStylist2 = new Stylist("Ann", "Peters");
+      newStylist2.Save();
+      List<Stylist> allStylists = Stylist.GetAll();
+      List<Stylist> expectedList = new List<Stylist>{newStylist1, newStylist2};
+      CollectionAssert.AreEqual(allStylists, expectedList);
+    }
   }
+}
