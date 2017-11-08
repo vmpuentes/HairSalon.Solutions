@@ -3,7 +3,10 @@
 }
 
   <form action="/" class="form-group" method="post">
-    <label for="stylistName">Please add your stylist here.</label>
+    <label for="stylistFirstName">Please add your stylist first name here.</label>
+    <input type="text" class="form-control" name="stylist">
+
+    <label for="stylistLastName">Please add your stylist last name here.</label>
     <input type="text" class="form-control" name="stylist">
 
     @if(Model!=null)
