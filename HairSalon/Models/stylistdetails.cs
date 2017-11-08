@@ -39,22 +39,17 @@ namespace HairSalon.Models
       conn.Open();
 
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"INSERT INTO `stylist` ('stylist_id',`first_name`,'last_name') VALUES (@stylistFirstName, @stylistLastName);";
+      cmd.CommandText = @"INSERT INTO `stylist` ('stylist_id',`stylist_name`,'stylist_fee') VALUES (@stylistid, @stylistName, @stylistfee);";
 
       MySqlParameter name = new MySqlParameter();
-      name.ParameterName = "@stylist_id";
-      name.Value = this.stylist_id;
+      name.ParameterName = "@stylist_name";
+      name.Value = this._name;
       cmd.Parameters.Add(name);
 
-      ySqlParameter name = new MySqlParameter();
-      name.ParameterName = "@stylistFirstName";
-      stylistFirstName.Value = this.stylistFirstName;
-      cmd.Parameters.Add(name);
-
-      ySqlParameter name = new MySqlParameter();
-      name.ParameterName = "@stylistLastName";
-      stylistLastName.Value = this.stylistLastName;
-      cmd.Parameters.Add(name);
+      MySqlParameter fee = new MySqlParameter();
+      fee.ParameterName = "@stylist_fee";
+      fee.Value = this._fee;
+      cmd.Parameters.Add(fee);
 
       conn.Close();
       if (conn != null)
@@ -68,14 +63,14 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"SELECT * FROM stylists ORDER BY first_name ASC;";
+      cmd.CommandText = @"SELECT * FROM stylists ORDER BY name ASC;";
       MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
         int StylistId = rdr.GetInt32(0);
-        string StylistFirstName = rdr.GetString(1);
-        string StylistLastName = rdr.GetString (2);
-        Stylist newStylist = new Stylist(StylistFirstName, StylistLastName, StylistId);
+        string StylistName = rdr.GetString(1);
+        int StylistFee = rdr.GetInt32 (0);
+        Stylist newStylist = new Stylist(StylistName, StylistId, StylistFee);
         allStylists.Add(newStylist);
       }
 

@@ -9,14 +9,14 @@
     <input type="text" name="client">
 
     <button type="submit" class="btn btn-success">Add Client</button>
-      <a href="/"><button type="button" class="btn btn-info">Back to Stylists</button></a>
+      <a href="/"><button type="button" class="btn btn-success">Back to Stylists</button></a>
   </form>
 
   @foreach(var client in Model.SearchAllClients())
   {
     <div class="well">
     <form action="/stylist-details/@Model.GetId()/deleted/@client.GetId()" method="post">
-    <button type="submit" class="btn btn-danger">x</button>
+    <button type="submit" class="btn btn-succes">submit</button>
     </form>
 
     <span class="client-style">@client.GetName()</span>
