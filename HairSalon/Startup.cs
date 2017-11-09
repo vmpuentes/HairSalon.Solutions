@@ -37,6 +37,6 @@ namespace HairSalon
 
     public static class DBConfiguration
     {
-        public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=sravanthi_velaga;";
+        public static string ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=victor_puentes;";
     }
 }
