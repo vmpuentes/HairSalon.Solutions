@@ -3,10 +3,10 @@
 }
   <h1>@Model.GetName()</h1>
 
-  <form class="form-group" action="/stylist-details/@Model.GetId()" method="post">
+  <form class="form-group" action="/stylistdetails/@Model.GetId()" method="post">
 
-    <label for="client-name">Enter a client:</label>
-    <input type="text" name="client">
+    <label for="clientName">Enter a client:</label>
+    <input type="text" name="clientName">
 
     <button type="submit" class="btn btn-success">Add Client</button>
       <a href="/"><button type="button" class="btn btn-success">Back to Stylists</button></a>
@@ -15,7 +15,7 @@
   @foreach(var client in Model.SearchAllClients())
   {
     <div class="well">
-    <form action="/stylist-details/@Model.GetId()/deleted/@client.GetId()" method="post">
+    <form action="/stylistdetails/@Model.GetId()/deleted/@client.GetId()" method="post">
     <button type="submit" class="btn btn-succes">submit</button>
     </form>
 

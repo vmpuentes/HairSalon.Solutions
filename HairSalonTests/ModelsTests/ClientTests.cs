@@ -95,14 +95,14 @@ namespace HairSalon.Tests
     public void Find_FindClientInDB_Client()
     {
       // Arrange
-      Client testClient = new Client("Amy Novo", 1, 2);
+      Client testClient = new Client("Amy Novo", 15);
       testClient.Save();
 
       // Act
       Client findClient = Client.Find(testClient.GetId());
 
       // Assert
-      Assert.AreEqual(testClient, foundClient);
+      Assert.AreEqual(testClient, findClient);
     }
 
 
