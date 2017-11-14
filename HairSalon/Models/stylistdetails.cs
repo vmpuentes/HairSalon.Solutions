@@ -32,6 +32,46 @@ namespace HairSalon.Models
     return _fee;
   }
 
+
+  public static List<Stylist> GetAll()
+  {
+    List<Stylist> allStylists = new List<Stylist> {};
+    MySqlConnection conn = DB.Connection();
+    conn.Open();
+    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+    cmd.CommandText = @"SELECT * FROM stylists ORDER BY name ASC;";
+    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+    while(rdr.Read())
+    {
+      int StylistId = rdr.GetInt32(0);
+      string StylistName = rdr.GetString(1);
+      int StylistFee = rdr.GetInt32 (2);
+      Stylist newStylist = new Stylist(StylistName, StylistFee);
+      allStylists.Add(newStylist);
+    }
+
+    conn.Close();
+    if (conn != null)
+    {
+      conn.Dispose();
+    }
+    return allStylists;
+  }
+
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM stylists;";
+      cmd.ExecuteNonQuery();
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+
   public void Save()
   {
     MySqlConnection conn = DB.Connection();
@@ -49,30 +89,6 @@ namespace HairSalon.Models
     fee.ParameterName = "@stylist_fee";
     fee.Value = this._fee;
     cmd.Parameters.Add(fee);
-
-    conn.Close();
-    if (conn != null)
-    {
-      conn.Dispose();
-    }
-  }
-
-  public static List<Stylist> GetAll()
-  {
-    List<Stylist> allStylists = new List<Stylist> {};
-    MySqlConnection conn = DB.Connection();
-    conn.Open();
-    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-    cmd.CommandText = @"SELECT * FROM stylists ORDER BY name ASC;";
-    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-    while(rdr.Read())
-    {
-      int StylistId = rdr.GetInt32(0);
-      string StylistName = rdr.GetString(1);
-      int StylistFee = rdr.GetInt32 (0);
-      Stylist newStylist = new Stylist(StylistName, StylistFee);
-      allStylists.Add(newStylist);
-    }
 
     conn.Close();
     if (conn != null)
