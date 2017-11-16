@@ -29,23 +29,23 @@ namespace HairSalon.Controllers
       // Stylist newStylistfee = new Stylist("stylistfee");
       newStylist.Save();
       // List<Stylist> allStylists = Stylist.GetAll();
-      return View("stylistdetails", Stylist.GetAll());
+      return View("stylistdetails", newStylist);
     }
 
     [HttpGet("/stylistdetails/{id}")]
     public ActionResult StylistDetails(int id)
     {
-      Stylist newStylist = new Stylist(
-      Request.Form["stylistName"],
-      int.Parse(Request.Form["stylistfee"]));
-
-      return View(newStylist);
+      Stylist stylist = Stylist.Find(id);
+      return View("stylistdetails", stylist);
     }
 
      [HttpPost("/stylistdetails/{id}")]
      public ActionResult StylistDetailsPost(int id)
      {
-       Client newClient = new Client(Request.Form["newClient"]);
+       Client newClient = new Client(
+       Request.Form["clientName"],
+       id
+       );
 
        newClient.Save();
 
@@ -56,7 +56,7 @@ namespace HairSalon.Controllers
      public ActionResult ClientEdit(int stylistId, int clientId)
      {
        Dictionary<string,object> model = new Dictionary<string,object>{};
-       Stylist myStylist = Stylist.find(stylistId);
+       Stylist myStylist = Stylist.Find(stylistId);
        Client myClient = Client.Find(clientId);
 
        model.Add("stylist", myStylist);
@@ -68,7 +68,7 @@ namespace HairSalon.Controllers
      public ActionResult ClientEdited(int stylistId, int clientId)
      {
        Client updatedClient = Client.Find(clientId);
-       updatedClient.Update(Request.Form["newClient"]);
+       updatedClient.UpdateName(Request.Form["newClient"]);
 
        return View("StylistDetails", Stylist.Find(stylistId));
      }
@@ -77,7 +77,7 @@ namespace HairSalon.Controllers
      public ActionResult ClientDeleted(int stylistId, int clientId)
      {
        Client deletedClient = Client.Find(clientId);
-       deletedClient.Delete();
+       deletedClient.DeleteClient();
 
 
        return View("stylistdetails", Stylist.Find(stylistId));

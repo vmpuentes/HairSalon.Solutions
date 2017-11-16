@@ -12,7 +12,7 @@
       <a href="/"><button type="button" class="btn btn-success">Back to Stylists</button></a>
   </form>
 
-  @foreach(var client in Model.SearchAllClients())
+  @foreach(var client in @Model.SearchAllClients())
   {
     <div class="well">
     <form action="/stylistdetails/@Model.GetId()/deleted/@client.GetId()" method="post">

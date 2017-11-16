@@ -11,7 +11,7 @@
 
     @if(Model!=null)
     {
-      @foreach(var stylist in Model)
+      @foreach(var stylist in Model["stylist"])
       {
         <div class="well">
           <h3><a href="/stylistdetails/@stylist.GetId()">@stylist.GetName()</a>
