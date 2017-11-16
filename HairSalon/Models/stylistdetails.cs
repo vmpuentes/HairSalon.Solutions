@@ -132,8 +132,9 @@ namespace HairSalon.Models
 
     var cmdGetNewId = conn.CreateCommand() as MySqlCommand;
     cmdGetNewId.CommandText = @"SELECT LAST_INSERT_ID();";
-
-    UInt64 newId = (UInt64) cmdGetNewId.ExecuteScalar();
+    
+    _id = (int) cmd.LastInsertedId;
+    // UInt64 newId = (UInt64) cmdGetNewId.ExecuteScalar();
     this._id = (int)newId;
 
     conn.Close();
