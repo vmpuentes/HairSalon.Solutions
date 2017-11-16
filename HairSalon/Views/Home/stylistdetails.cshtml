@@ -12,15 +12,17 @@
       <a href="/"><button type="button" class="btn btn-success">Back to Stylists</button></a>
   </form>
 
-  @foreach(var client in @Model.SearchAllClients())
+  @foreach(var client in Model.SearchAllClients())
   {
     <div class="well">
     <form action="/stylistdetails/@Model.GetId()/deleted/@client.GetId()" method="post">
+
     <button type="submit" class="btn btn-succes">submit</button>
     </form>
 
     <span class="client-style">@client.GetName()</span>
-    <a href="/stylistdetails/@Model.GetId()/edit/@client.GetId()"><button type="submit" class="btn btn-info">Edit</button></a>
+    <a href="/stylistdetails/@Model.GetId()/edit/@client.GetId()">
+    /*<button type="submit" class="btn btn-info">Edit</button></a>*/
     </div>
   }
 

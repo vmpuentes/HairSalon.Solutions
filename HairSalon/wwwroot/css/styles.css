@@ -1,9 +1,13 @@
 h1 {
   letter-spacing: 20px;
   text-align: center;
-  font-family: sans-serif;
+  font-family: fantasy;
   font-weight: bold;
-  background-color: #ee4477;
+  background-color: #bb9999;
   letter-spacing: 20px;
   font-size: 50px;
+}
+
+.jumbotron {
+  background-image: url("../img/VMP.jpg");
 }
