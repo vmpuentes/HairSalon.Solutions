@@ -15,11 +15,6 @@ namespace HairSalon.Tests
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=victor_puentes_test;";
     }
 
-    public void Dispose()
-    {
-      Client.DeleteAll();
-    }
-
     [TestMethod]
     public void GetAll_DatabaseEmptyFirst_0()
     {
@@ -105,6 +100,10 @@ namespace HairSalon.Tests
       Assert.AreEqual(testClient, findClient);
     }
 
+    public void Dispose()
+    {
+      Client.DeleteAll();
+    }
 
   }
 }

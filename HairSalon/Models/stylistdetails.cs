@@ -31,6 +31,32 @@ namespace HairSalon.Models
   {
     return _fee;
   }
+
+  public static List<Stylist> GetAll()
+  {
+    List<Stylist> allStylists = new List<Stylist> {};
+    MySqlConnection conn = DB.Connection();
+    conn.Open();
+    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
+    cmd.CommandText = @"SELECT * FROM stylists;";
+    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
+    while(rdr.Read())
+    {
+      int StylistId = rdr.GetInt32(0);
+      string StylistName = rdr.GetString(1);
+      int StylistFee = rdr.GetInt32 (2);
+      Stylist newStylist = new Stylist(StylistName, StylistFee, StylistId);
+      allStylists.Add(newStylist);
+    }
+
+    conn.Close();
+    if (conn != null)
+    {
+      conn.Dispose();
+    }
+    return allStylists;
+   }
+
   public static Stylist Find(int id)
   {
     MySqlConnection conn = DB.Connection();
@@ -64,32 +90,6 @@ namespace HairSalon.Models
     }
     return newStylist;
   }
-
-
-  public static List<Stylist> GetAll()
-  {
-    List<Stylist> allStylists = new List<Stylist> {};
-    MySqlConnection conn = DB.Connection();
-    conn.Open();
-    MySqlCommand cmd = conn.CreateCommand() as MySqlCommand;
-    cmd.CommandText = @"SELECT * FROM stylists ORDER BY name ASC;";
-    MySqlDataReader rdr = cmd.ExecuteReader() as MySqlDataReader;
-    while(rdr.Read())
-    {
-      int StylistId = rdr.GetInt32(0);
-      string StylistName = rdr.GetString(1);
-      int StylistFee = rdr.GetInt32 (2);
-      Stylist newStylist = new Stylist(StylistName, StylistFee, StylistId);
-      allStylists.Add(newStylist);
-    }
-
-    conn.Close();
-    if (conn != null)
-    {
-      conn.Dispose();
-    }
-    return allStylists;
-   }
 
    public List<Client> SearchAllClients()
    {
