@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using HairSalon.Models;
 using System.Collections.Generic;
+using HairSalon.Models;
 using System;
 
 namespace HairSalon.Controllers
@@ -19,6 +19,13 @@ namespace HairSalon.Controllers
       return View("Index", model);
     }
 
+    [HttpGet("/stylistdetails/{id}")]
+    public ActionResult StylistDetails(int id)
+    {
+      Stylist stylist = Stylist.Find(id);
+      return View("stylistdetails", stylist);
+    }
+
     [HttpPost("/")]
     public ActionResult IndexPost()
     {
@@ -32,20 +39,10 @@ namespace HairSalon.Controllers
       return View("stylistdetails", newStylist);
     }
 
-    [HttpGet("/stylistdetails/{id}")]
-    public ActionResult StylistDetails(int id)
-    {
-      Stylist stylist = Stylist.Find(id);
-      return View("stylistdetails", stylist);
-    }
-
      [HttpPost("/stylistdetails/{id}")]
      public ActionResult StylistDetailsPost(int id)
      {
-       Client newClient = new Client(
-       Request.Form["clientName"],
-       id
-       );
+       Client newClient = new Client(Request.Form["clientName"], id);
 
        newClient.Save();
 

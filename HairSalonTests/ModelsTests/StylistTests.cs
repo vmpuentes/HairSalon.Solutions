@@ -1,7 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System;
 using HairSalon.Models;
+using HairSalon;
+using System;
 
 namespace HairSalon.Tests
 {
@@ -12,6 +13,7 @@ namespace HairSalon.Tests
     {
       DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=victor_puentes_test;";
     }
+
        public void Dispose()
     {
       Stylist.DeleteAll();
@@ -19,7 +21,21 @@ namespace HairSalon.Tests
     }
 
     [TestMethod]
-    public void GetAllStylists_ReturnsnoStylist_0()
+    public void Save_SavesToDatabase_StylistList()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Jen");
+
+      //Act
+      int result = Stylist.GetAll().Count;
+
+      //Assert
+      Assert.AreEqual(0, result);
+    }
+
+
+    [TestMethod]
+    public void GetAllStylists_ReturnsNoStylist_0()
     {
       int result = Stylist.GetAll().Count;
       Assert.AreEqual(0, result);
