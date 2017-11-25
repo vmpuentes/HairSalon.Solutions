@@ -10,7 +10,12 @@ namespace HairSalon.Tests
   {
     public StylistTest()
     {
-      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8809;database=victor_puentes_test;";
+      DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=3306;database=victor_puentes_test;";
+    }
+       public void Dispose()
+    {
+      Stylist.DeleteAll();
+      Client.DeleteAll();
     }
 
     [TestMethod]
@@ -60,12 +65,6 @@ namespace HairSalon.Tests
       List<Stylist> allStylists = Stylist.GetAll();
       List<Stylist> expectedList = new List<Stylist>{newStylist1, newStylist2};
       CollectionAssert.AreEqual(allStylists, expectedList);
-    }
-
-    public void Dispose()
-    {
-      Stylist.DeleteAll();
-      Client.DeleteAll();
     }
   }
 }
